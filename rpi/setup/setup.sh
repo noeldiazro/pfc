@@ -18,6 +18,17 @@ sudo ln -s /home/pi/pfc/rpi/setup/config/afpd.service /etc/avahi/services/afpd.s
 echo "Instalando Pip..."
 sudo apt-get -qq -y install python-pip
 
-echo "Instalando Script para administrar la consola serie"
+echo "Instalando Script para administrar la consola serie..."
 sudo wget https://raw.github.com/lurch/rpi-serial-console/master/rpi-serial-console -O /usr/bin/rpi-serial-console
 sudo chmod +x /usr/bin/rpi-serial-console
+
+echo "Instalando paquete Python: pyserial..."
+sudo pip install pyserial
+
+echo "Instalando herramientas de programación AVR..."
+sudo apt-get -qq -y install avrdude avrdude-doc binutils-avr avr-libc gcc-avr gdb-avr
+
+echo "Instalando programador/flash AVR..."
+wget http://project-downloads.drogon.net/gertboard/avrdude_5.10-4_armhf.deb
+sudo dpkg -i avrdude_5.10-4_armhf.deb
+rm avrdude_5.10-4_armhf.deb
