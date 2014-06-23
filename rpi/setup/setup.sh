@@ -7,6 +7,7 @@ sudo apt-get -qq upgrade
 
 echo "Instalando emacs..."
 sudo apt-get -qq -y install emacs
+ln - s config/.emacs ~/.emacs
 
 echo "Instalando Netatalk"
 sudo apt-get -qq -y install netatalk
