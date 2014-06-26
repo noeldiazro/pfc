@@ -23,7 +23,7 @@ class Acquisition:
             elapsed_time = time.time() - start_time
             adc_value = floor(4096*(0.5*(sin(2*pi*elapsed_time)+1)))
             self.__data.append([elapsed_time, adc_value])
-            print(elapsed_time, adc_value)
+#            print(elapsed_time, adc_value)
             time.sleep(self.__sampling_period)
 
     def stop(self):
@@ -34,3 +34,5 @@ class Acquisition:
 
     def get_status(self):
         return self.__status
+
+#    def __get_adc_value()
