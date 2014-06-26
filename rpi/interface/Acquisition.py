@@ -26,15 +26,18 @@ class Acquisition:
         return self.__channel
 
     def start(self):
-        self.__spi.open(0, 0)
-        self.__status = 'running'
-        start_time = time.time()
-        while True:
-            elapsed_time = time.time() - start_time
-            adc_value = self.__get_adc_value()
-            self.__data.append([elapsed_time, adc_value])
-            print(elapsed_time, adc_value)
-            time.sleep(self.__sampling_period)
+        try:
+            self.__spi.open(0, 0)
+            self.__status = 'running'
+            start_time = time.time()
+            while True:
+                elapsed_time = time.time() - start_time
+                adc_value = self.__get_adc_value()
+                self.__data.append([elapsed_time, adc_value])
+                print(elapsed_time, adc_value)
+                time.sleep(self.__sampling_period)
+        except KeyboardInterrupt:
+            self.__spi.close()
 
     def stop(self):
         self.__status = 'stopped'
@@ -47,7 +50,12 @@ class Acquisition:
         return self.__status
 
     def __get_adc_value(self):
+        # MCP3008
         #ret = self.__spi.xfer2([1, (8 + self.get_channel()) << 4, 0])
         #return ((ret[1]&3) << 8) + ret[2]
+        # MCP3002
+        #r = self.__spi.xfer2([1,(2+self.get_channel()) << 6,0])
+        #return ((r[1]&31) << 6) + (r[2]>>2)
+        # MCP3202
         r = self.__spi.xfer2([1,(2+self.get_channel()) << 6,0])
-        return ((r[1]&31) << 6) + (r[2]>>2)
+        return ((r[1] & 0b00001111) << 8) + r[2]
