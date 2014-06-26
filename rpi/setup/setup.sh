@@ -8,6 +8,9 @@ sudo apt-get -qq update
 echo "Actualizando los paquetes instalados..."
 sudo apt-get -qq upgrade
 
+echo "Instalance screen..."
+sudo apt-get -qq -y install screen
+
 echo "Instalando emacs..."
 sudo apt-get -qq -y install emacs
 ln -s $BASEDIR/config/.emacs ~/.emacs
