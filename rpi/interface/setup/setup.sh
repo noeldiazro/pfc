@@ -10,6 +10,7 @@ sudo mv /etc/modprobe.d/raspi-blacklist.conf /etc/modprobe.d/raspi-blacklist_bk.
 sudo ln -s $BASEDIR/config/raspi-blacklist.conf /etc/modprobe.d/raspi-blacklist.conf
 
 echo "Instalando módulo Python para acceder a la interfaz SPI..."
+sudo apt-get -qq update
 sudo apt-get -qq -y install python-dev
 cd py-spidev
 sudo python setup.py install

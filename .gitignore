@@ -1,3 +1,5 @@
 .AppleDouble/
 .DS_Store
 rpi/tmp/
+*.pyc
+rpi/interface/setup/py-spidev/build
