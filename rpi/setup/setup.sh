@@ -8,30 +8,30 @@ sudo apt-get -qq update
 echo "Actualizando los paquetes instalados..."
 sudo apt-get -qq upgrade
 
-echo "Instalance screen..."
+echo "Instalando screen..."
 sudo apt-get -qq -y install screen
 
 echo "Instalando emacs..."
 sudo apt-get -qq -y install emacs
 ln -s $BASEDIR/config/.emacs ~/.emacs
 
-echo "Activando interfaz SPI..."
-sudo mv /etc/modules /etc/modules_bk
-sudo ln -s $BASEDIR/config/modules /etc/modules
-sudo mv /etc/modprobe.d/raspi-blacklist.conf /etc/modprobe.d/raspi-blacklist_bk.conf
-sudo ln -s $BASEDIR/config/raspi-blacklist.conf /etc/modprobe.d/raspi-blacklist.conf
+#echo "Activando interfaz SPI..."
+#sudo mv /etc/modules /etc/modules_bk
+#sudo ln -s $BASEDIR/config/modules /etc/modules
+#sudo mv /etc/modprobe.d/raspi-blacklist.conf /etc/modprobe.d/raspi-blacklist_bk.conf
+#sudo ln -s $BASEDIR/config/raspi-blacklist.conf /etc/modprobe.d/raspi-blacklist.conf
 
-echo "Instalando módulo Python para acceder a la interfaz SPI..."
-sudo apt-get -qq -y install python-dev
-git clone git://github.com/doceme/py-spidev
-sudo python py-spidev/setup.py install
+#echo "Instalando módulo Python para acceder a la interfaz SPI..."
+#sudo apt-get -qq -y install python-dev
+#git clone git://github.com/doceme/py-spidev
+#sudo python py-spidev/setup.py install
 
 #echo "Instalando Netatalk"
 #sudo apt-get -qq -y install netatalk
 
-#echo "Instalando Avahi.."
-#sudo apt-get -qq -y install avahi-daemon
-#sudo ln -s /home/pi/pfc/rpi/setup/config/afpd.service /etc/avahi/services/afpd.service
+echo "Instalando Avahi.."
+sudo apt-get -qq -y install avahi-daemon
+sudo ln -s $BASEDIR$/config/afpd.service /etc/avahi/services/afpd.service
 
 #echo "Instalando Pip..."
 #sudo apt-get -qq -y install python-pip
@@ -50,3 +50,9 @@ sudo python py-spidev/setup.py install
 #wget http://project-downloads.drogon.net/gertboard/avrdude_5.10-4_armhf.deb
 #sudo dpkg -i avrdude_5.10-4_armhf.deb
 #rm avrdude_5.10-4_armhf.deb
+
+echo "Instalando tightvncserver (pide contraseña).."
+sudo apt-get install tightvncserver
+vncserver :1
+mkdir .config/autostart
+ln -s $BASEDIR$/config/tightvnc.desktop ~/.config/autostart/tightvnc.desktop
