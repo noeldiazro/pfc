@@ -52,7 +52,10 @@ sudo ln -s $BASEDIR$/config/afpd.service /etc/avahi/services/afpd.service
 #rm avrdude_5.10-4_armhf.deb
 
 echo "Instalando tightvncserver (pide contraseña).."
-sudo apt-get install tightvncserver
+sudo apt-get -qq -y install tightvncserver
 vncserver :1
 mkdir .config/autostart
 ln -s $BASEDIR$/config/tightvnc.desktop ~/.config/autostart/tightvnc.desktop
+
+echo "Instalando Sphinx.."
+sudo apt-get -qq -y install python-sphinx
