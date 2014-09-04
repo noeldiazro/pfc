@@ -59,3 +59,6 @@ ln -s $BASEDIR$/config/tightvnc.desktop ~/.config/autostart/tightvnc.desktop
 
 echo "Instalando Sphinx.."
 sudo apt-get -qq -y install python-sphinx
+
+echo "Instalando graphviz.."
+sudo apt-get -qq -y install graphviz
