@@ -1,6 +1,6 @@
 #!/bin/bash
 BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-cd
+cd $HOME
  
 echo "Actualizando las listas de paquetes..."
 sudo apt-get -qq update
@@ -10,6 +10,8 @@ sudo apt-get -qq upgrade
 
 echo "Instalando screen..."
 sudo apt-get -qq -y install screen
+echo "Descargando fichero de configuración de screen..."
+wget raw.github.com/startup-class/dotfiles/master/.screenrc -O .screenrc
 
 echo "Instalando emacs..."
 sudo apt-get -qq -y install emacs
