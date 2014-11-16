@@ -1,0 +1,7 @@
+# GPIO programmer definition
+# Extracted from http://project-downloads.drogon.net/gertboard/programmers.txt
+
+gpio.name=Raspberry Pi GPIO
+#gpio.communication=gpio
+gpio.protocol=gpio
+
