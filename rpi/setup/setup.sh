@@ -49,27 +49,27 @@ sudo ln -s $BASEDIR$/config/afpd.service /etc/avahi/services/afpd.service
 #sudo dpkg -i avrdude_5.10-4_armhf.deb
 #rm avrdude_5.10-4_armhf.deb
 
-echo "Instalando tightvncserver (pide contraseña).."
+echo "Installing tightvncserver (asks for password)..."
 sudo apt-get -qq -y install tightvncserver
 vncserver :1
 mkdir -p .config/autostart
 ln -s $BASEDIR$/config/tightvnc.desktop ~/.config/autostart/tightvnc.desktop
 
-echo "Instalando Sphinx.."
+echo "Installing sphinx..."
 sudo apt-get -qq -y install python-sphinx
 
-echo "Instalando graphviz.."
+echo "Installing graphviz.."
 sudo apt-get -qq -y install graphviz
 
-echo "Install Arduino IDE..."
+echo "Installing Arduino IDE..."
 sudo apt-get -qq -y install arduino
 
-echo "Install modified flash loader..."
+echo "Installing modified AVR flash loader..."
 wget http://project-downloads.drogon.net/gertboard/avrdude_5.10-4_armhf.deb -O /tmp/avrdude_5.10-4_armhf.deb
 sudo dpkg -i /tmp/avrdude_5.10-4_armhf.deb
 sudo chmod 4755 /usr/bin/avrdude
 
-echo "Add Arduino IDE definitions for Gertboard and Raspberry Pi..."
+echo "Adding Arduino IDE definitions for Gertboard and Raspberry Pi..."
 ARDUINO_CONF_PATH=/usr/share/arduino/hardware/arduino
 cat config/gert328_board.txt $ARDUINO_CONF_PATH$/boards.txt > /tmp/boards.txt
 sudo mv $ARDUINO_CONF_PATH$/boards.txt $ARDUINO_CONF_PATH$/boards.txt.bak
@@ -78,11 +78,11 @@ cat config/gpio_programmer.txt $ARDUINO_CONF_PATH$/programmers.txt > /tmp/progra
 sudo mv $ARDUINO_CONF_PATH$/programmers.txt $ARDUINO_CONF_PATH$/programmers.txt.bak
 sudo mv /tmp/programmers.txt $ARDUINO_CONF_PATH$/
 
-echo "Download script for ATmega328 initialisation..."
+echo "Downloading script for ATmega328 initialisation..."
 sudo rm -f /usr/local/bin/avrsetup
 sudo wget -q http://project-downloads.drogon.net/gertboard/avrsetup -O /usr/local/bin/avrsetup
 sudo chmod 755 /usr/local/bin/avrsetup
 
-echo "Download script for enabling/disabling serial console..."
+echo "Downloading script for enabling/disabling serial console..."
 sudo wget https://raw.githubusercontent.com/lurch/rpi-serial-console/master/rpi-serial-console -O /usr/bin/rpi-serial-console
 sudo chmod +x /usr/bin/rpi-serial-console
