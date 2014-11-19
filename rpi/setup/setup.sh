@@ -71,10 +71,10 @@ sudo chmod 4755 /usr/bin/avrdude
 
 echo "Adding Arduino IDE definitions for Gertboard and Raspberry Pi..."
 ARDUINO_CONF_PATH=/usr/share/arduino/hardware/arduino
-cat config/gert328_board.txt $ARDUINO_CONF_PATH$/boards.txt > /tmp/boards.txt
+cat $BASEDIR/config/gert328_board.txt $ARDUINO_CONF_PATH$/boards.txt > /tmp/boards.txt
 sudo mv $ARDUINO_CONF_PATH$/boards.txt $ARDUINO_CONF_PATH$/boards.txt.bak
 sudo mv /tmp/boards.txt $ARDUINO_CONF_PATH$/
-cat config/gpio_programmer.txt $ARDUINO_CONF_PATH$/programmers.txt > /tmp/programmers.txt
+cat $BASEDIR/config/gpio_programmer.txt $ARDUINO_CONF_PATH$/programmers.txt > /tmp/programmers.txt
 sudo mv $ARDUINO_CONF_PATH$/programmers.txt $ARDUINO_CONF_PATH$/programmers.txt.bak
 sudo mv /tmp/programmers.txt $ARDUINO_CONF_PATH$/
 
