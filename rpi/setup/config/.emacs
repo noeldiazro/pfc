@@ -6,3 +6,4 @@
 (global-set-key (kbd "M-ç") "}")
 (global-set-key (kbd "M-+") "]")
 (global-set-key (kbd "M-ñ") "~")
+(delete-selection-mode 1)
