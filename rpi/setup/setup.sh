@@ -66,10 +66,14 @@ ln -s $BASEDIR/config/.profile .profile
 ##rm avrdude_5.10-4_armhf.deb
 
 #echo "Installing tightvncserver (asks for password)..."
-#sudo apt-get -qq -y install tightvncserver
-#vncserver :1
+sudo apt-get -qq -y install tightvncserver
+vncserver :1
 #mkdir -p .config/autostart
 #ln -s $BASEDIR$/config/tightvnc.desktop ~/.config/autostart/tightvnc.desktop
+sudo cp $BASEDIR$/config/vncboot /etc/init.d
+cd /etc/init.d
+sudo update-rc.d vncboot defaults
+cd $HOME
 
 #echo "Installing sphinx..."
 #sudo apt-get -qq -y install python-sphinx
