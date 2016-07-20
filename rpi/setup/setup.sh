@@ -30,12 +30,11 @@ ln -s $BASEDIR/config/.profile .profile
 #wget raw.github.com/startup-class/dotfiles/master/.screenrc -O .screenrc
 
 #echo "Installing emacs..."
-#sudo apt-get -qq -y install emacs
-#ln -s $BASEDIR/config/.emacs ~/.emacs
+sudo apt-get -qq -y install emacs
+ln -s $BASEDIR/config/.emacs ~/.emacs
 
 ##echo "Activando interfaz SPI..."
-##sudo mv /etc/modules /etc/modules_bk
-##sudo ln -s $BASEDIR/config/modules /etc/modules
+sudo cp $BASEDIR/config/config.txt /boot
 ##sudo mv /etc/modprobe.d/raspi-blacklist.conf /etc/modprobe.d/raspi-blacklist_bk.conf
 ##sudo ln -s $BASEDIR/config/raspi-blacklist.conf /etc/modprobe.d/raspi-blacklist.conf
 
