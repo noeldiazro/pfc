@@ -18,22 +18,16 @@ sudo pip install virtualenvwrapper
 ln -s $BASEDIR/config/.profile .profile
 . .profile
 
-#echo "Updating package repositories..."
-#sudo apt-get -qq update
+echo "Installing screen..."
+sudo apt-get -qq -y install screen
+echo "Downloading screen's config file..."
+wget raw.github.com/startup-class/dotfiles/master/.screenrc -O .screenrc
 
-#echo "Updating installed packages..."
-#sudo apt-get -qq upgrade
-
-#echo "Installing screen..."
-#sudo apt-get -qq -y install screen
-#echo "Downloading screen's config file..."
-#wget raw.github.com/startup-class/dotfiles/master/.screenrc -O .screenrc
-
-#echo "Installing emacs..."
+echo "Installing emacs..."
 sudo apt-get -qq -y install emacs
 ln -s $BASEDIR/config/.emacs ~/.emacs
 
-##echo "Activando interfaz SPI..."
+echo "Activando interfaz SPI..."
 sudo cp $BASEDIR/config/config.txt /boot
 ##sudo mv /etc/modprobe.d/raspi-blacklist.conf /etc/modprobe.d/raspi-blacklist_bk.conf
 ##sudo ln -s $BASEDIR/config/raspi-blacklist.conf /etc/modprobe.d/raspi-blacklist.conf
