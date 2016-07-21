@@ -2,20 +2,20 @@
 BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $HOME
 
-sudo apt-get update
+sudo apt-get -qq update
 echo "Installing AppleShare file server (AFP).."
-sudo apt-get install netatalk
+sudo apt-get -qq -y install netatalk
 
 echo "Installing Avahi.."
-sudo apt-get install avahi-daemon
+sudo apt-get -qq -y install avahi-daemon
 
 echo "Publishing AFP service"
-sudo ln -s $BASEDIR$/config/afpd.service /etc/avahi/services/afpd.service
+sudo ln -s $BASEDIR/config/afpd.service /etc/avahi/services/afpd.service
 
 echo "Configuring Python development environment.."
 mkdir .virtualenvs
 sudo pip install virtualenvwrapper
-ln -s $BASEDIR/config/.profile .profile
+cp $BASEDIR/config/.profile .
 . .profile
 
 echo "Installing screen..."
@@ -63,7 +63,7 @@ sudo apt-get -qq -y install tightvncserver
 vncserver :1
 #mkdir -p .config/autostart
 #ln -s $BASEDIR$/config/tightvnc.desktop ~/.config/autostart/tightvnc.desktop
-sudo cp $BASEDIR$/config/vncboot /etc/init.d
+sudo cp $BASEDIR/config/vncboot /etc/init.d
 cd /etc/init.d
 sudo update-rc.d vncboot defaults
 cd $HOME
