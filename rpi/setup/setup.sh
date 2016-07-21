@@ -10,7 +10,7 @@ echo "Installing Avahi.."
 sudo apt-get -qq -y install avahi-daemon
 
 echo "Publishing AFP service"
-sudo ln -s $BASEDIR/config/afpd.service /etc/avahi/services/afpd.service
+sudo cp $BASEDIR/config/afpd.service /etc/avahi/services
 
 echo "Configuring Python development environment.."
 sudo apt-get -qq -y install python-dev
@@ -99,3 +99,7 @@ cd $HOME
 #echo "Downloading script for enabling/disabling serial console..."
 #sudo wget https://raw.githubusercontent.com/lurch/rpi-serial-console/master/rpi-serial-console -O /usr/bin/rpi-serial-console
 #sudo chmod +x /usr/bin/rpi-serial-console
+
+echo "---------------------------------------------"
+echo "Reboot is required for changes to take effect"
+echo "---------------------------------------------"
