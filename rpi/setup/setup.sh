@@ -2,33 +2,35 @@
 BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $HOME
 
+echo ">>> Updating package manager repositories... <<<"
 sudo apt-get -qq update
-echo "Installing AppleShare file server (AFP).."
+
+echo ">>> Installing AppleShare file server (AFP)... <<<"
 sudo apt-get -qq -y install netatalk
 
-echo "Installing Avahi.."
-sudo apt-get -qq -y install avahi-daemon
+#echo "Installing Avahi.."
+#sudo apt-get -qq -y install avahi-daemon
 
-echo "Publishing AFP service"
+echo ">>> Publishing AFP service... <<<"
 sudo cp $BASEDIR/config/afpd.service /etc/avahi/services
 
-echo "Configuring Python development environment.."
+echo ">>> Configuring Python development environment... <<<"
 sudo apt-get -qq -y install python-dev
 mkdir .virtualenvs
 sudo pip install virtualenvwrapper
 cp $BASEDIR/config/.profile .
 . .profile
 
-echo "Installing screen..."
+echo ">>> Installing screen... <<<"
 sudo apt-get -qq -y install screen
-echo "Downloading screen's config file..."
+echo ">>> Downloading screen's config file... <<<<"
 wget raw.github.com/startup-class/dotfiles/master/.screenrc -O .screenrc
 
-echo "Installing emacs..."
+echo ">>> Installing emacs... <<<"
 sudo apt-get -qq -y install emacs
 ln -s $BASEDIR/config/.emacs ~/.emacs
 
-echo "Enabling SPI..."
+echo ">>> Enabling SPI... <<<"
 sudo cp $BASEDIR/config/config.txt /boot
 ##sudo mv /etc/modprobe.d/raspi-blacklist.conf /etc/modprobe.d/raspi-blacklist_bk.conf
 ##sudo ln -s $BASEDIR/config/raspi-blacklist.conf /etc/modprobe.d/raspi-blacklist.conf
@@ -36,13 +38,6 @@ sudo cp $BASEDIR/config/config.txt /boot
 
 ##git clone git://github.com/doceme/py-spidev
 ##sudo python py-spidev/setup.py install
-
-##echo "Instalando Netatalk"
-##sudo apt-get -qq -y install netatalk
-
-#echo "Installing Avahi.."
-#sudo apt-get -qq -y install avahi-daemon
-#sudo ln -s $BASEDIR$/config/afpd.service /etc/avahi/services/afpd.service
 
 ##echo "Instalando Pip..."
 ##sudo apt-get -qq -y install python-pip
@@ -58,7 +53,7 @@ sudo cp $BASEDIR/config/config.txt /boot
 ##sudo dpkg -i avrdude_5.10-4_armhf.deb
 ##rm avrdude_5.10-4_armhf.deb
 
-#echo "Installing tightvncserver (asks for password)..."
+echo ">>> Installing tightvncserver (asks for password)... <<<"
 sudo apt-get -qq -y install tightvncserver
 vncserver :1
 #mkdir -p .config/autostart
@@ -100,6 +95,5 @@ cd $HOME
 #sudo wget https://raw.githubusercontent.com/lurch/rpi-serial-console/master/rpi-serial-console -O /usr/bin/rpi-serial-console
 #sudo chmod +x /usr/bin/rpi-serial-console
 
-echo "---------------------------------------------"
-echo "Reboot is required for changes to take effect"
-echo "---------------------------------------------"
+echo ">>> Reboot is required for changes to take effect <<<"
+
