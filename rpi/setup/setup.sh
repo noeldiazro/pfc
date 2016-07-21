@@ -13,6 +13,7 @@ echo "Publishing AFP service"
 sudo ln -s $BASEDIR/config/afpd.service /etc/avahi/services/afpd.service
 
 echo "Configuring Python development environment.."
+sudo apt-get -qq -y install python-dev
 mkdir .virtualenvs
 sudo pip install virtualenvwrapper
 cp $BASEDIR/config/.profile .
@@ -27,13 +28,12 @@ echo "Installing emacs..."
 sudo apt-get -qq -y install emacs
 ln -s $BASEDIR/config/.emacs ~/.emacs
 
-echo "Activando interfaz SPI..."
+echo "Enabling SPI..."
 sudo cp $BASEDIR/config/config.txt /boot
 ##sudo mv /etc/modprobe.d/raspi-blacklist.conf /etc/modprobe.d/raspi-blacklist_bk.conf
 ##sudo ln -s $BASEDIR/config/raspi-blacklist.conf /etc/modprobe.d/raspi-blacklist.conf
 
-##echo "Instalando módulo Python para acceder a la interfaz SPI..."
-##sudo apt-get -qq -y install python-dev
+
 ##git clone git://github.com/doceme/py-spidev
 ##sudo python py-spidev/setup.py install
 
