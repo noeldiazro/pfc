@@ -95,5 +95,10 @@ cd $HOME
 #sudo wget https://raw.githubusercontent.com/lurch/rpi-serial-console/master/rpi-serial-console -O /usr/bin/rpi-serial-console
 #sudo chmod +x /usr/bin/rpi-serial-console
 
+echo ">>> Installing rt-tests.git <<<"
+git clone git://git.kernel.org/pub/scm/linux/kernel/git/clrkwllms/rt-tests.git
+cd rt-tests/
+make all
+
 echo ">>> Reboot is required for changes to take effect <<<"
 
