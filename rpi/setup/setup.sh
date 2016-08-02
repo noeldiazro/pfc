@@ -99,6 +99,8 @@ echo ">>> Installing rt-tests.git <<<"
 git clone git://git.kernel.org/pub/scm/linux/kernel/git/clrkwllms/rt-tests.git
 cd rt-tests/
 make all
+cd ..
+echo "export PATH=$PATH:~/rt-tests"
 
 echo ">>> Reboot is required for changes to take effect <<<"
 
