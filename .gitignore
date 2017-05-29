@@ -3,3 +3,4 @@
 rpi/tmp/
 *.pyc
 rpi/interface/setup/py-spidev/build
+*~
