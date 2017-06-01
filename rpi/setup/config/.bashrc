@@ -111,3 +111,11 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+bind '"\eº":"\\"'
+bind '"\e1":"|"'
+bind '"\e2":"@"'
+bind '"\e3":"#"'
+bind '"\eñ":"~"'
+bind '"\e+":"]"'
+bind '"\eç":"}"'

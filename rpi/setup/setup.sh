@@ -12,6 +12,7 @@ ln -s $BASEDIR/config/.screenrc .screenrc
 echo ">>> Installing emacs...<<<"
 sudo apt-get -qq -y install emacs
 ln -s $BASEDIR/config/.emacs .emacs
+cp $BASEDIR/config/.bashrc .bashrc
 
 echo ">>> Configuring Python development environment... <<<"
 sudo apt-get -qq -y install python-dev
