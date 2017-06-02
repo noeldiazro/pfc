@@ -119,3 +119,6 @@ bind '"\e3":"#"'
 bind '"\eñ":"~"'
 bind '"\e+":"]"'
 bind '"\eç":"}"'
+
+PROJECT_HOME=$HOME/dev
+. /usr/local/bin/virtualenvwrapper.sh

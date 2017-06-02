@@ -12,13 +12,14 @@ ln -s $BASEDIR/config/.screenrc .screenrc
 echo ">>> Installing emacs...<<<"
 sudo apt-get -qq -y install emacs
 ln -s $BASEDIR/config/.emacs .emacs
-cp $BASEDIR/config/.bashrc .bashrc
 
 echo ">>> Configuring Python development environment... <<<"
 sudo apt-get -qq -y install python-dev
 mkdir dev
 mkdir .virtualenvs
 sudo pip install virtualenvwrapper
-cp $BASEDIR/config/.profile .
+
+echo ">>> Configuring bash... <<<"
+cp $BASEDIR/config/.bashrc .bashrc
 
 echo ">>> Reboot is required for changes to take effect. <<<"

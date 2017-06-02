@@ -20,6 +20,3 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
-
-PROJECT_HOME=$HOME/dev
-. /usr/local/bin/virtualenvwrapper.sh
