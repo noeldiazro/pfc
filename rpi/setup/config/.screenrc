@@ -1,7 +1,18 @@
 # GNU Screen configuration file
 
+# Modification of original files by Balaji S. Srinivasan
+# https://raw.github.com/startup-class/dotfiles/master/.screenrc
+
 # Remapping Ctrl-A to Ctrl-T
 escape "^Tt"
 
 # Disabling startup message
 startup_message off
+
+# Navigation bar @ bottom
+hardstatus alwayslastline "%H %-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%<"
+
+# Autoload two screen tabs
+screen -t emacs 0
+screen -t bash 1
+
