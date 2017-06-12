@@ -122,3 +122,5 @@ bind '"\eç":"}"'
 
 PROJECT_HOME=$HOME/dev
 . /usr/local/bin/virtualenvwrapper.sh
+
+alias emacs='emacs -nw'
