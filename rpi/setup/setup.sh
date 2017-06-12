@@ -22,6 +22,8 @@ mkdir dev
 mkdir .virtualenvs
 sudo pip install virtualenvwrapper
 
+sudo apt-get -qq -y install python-matplotlib
+
 echo ">>> Configuring bash... <<<"
 cp $BASEDIR/config/.bashrc .bashrc
 
