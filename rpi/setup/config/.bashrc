@@ -124,3 +124,6 @@ PROJECT_HOME=$HOME/dev
 . /usr/local/bin/virtualenvwrapper.sh
 
 alias emacs='emacs -nw'
+
+# Enable X11 after sudo
+export XAUTHORITY=~pi/.Xauthority
